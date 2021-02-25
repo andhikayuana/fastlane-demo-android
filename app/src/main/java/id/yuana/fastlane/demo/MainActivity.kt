@@ -1,8 +1,8 @@
 package id.yuana.fastlane.demo
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.button).setOnClickListener {
-            Log.d("YUANA", "Hello from android")
+            Toast.makeText(this, "You just pressed the button", Toast.LENGTH_LONG)
+                .show()
         }
     }
 }
