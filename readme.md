@@ -6,5 +6,6 @@
 - Android Studio + SDK
 - Ruby
 - Fastlane
+- Firebase CLI
 
 ## TODO
