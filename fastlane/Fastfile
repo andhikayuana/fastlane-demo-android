@@ -31,6 +31,25 @@ platform :android do
     gradle(task: "clean assembleDebug")
   end
 
+  desc "Bump up App Version"
+  lane :bumpUpVersion do
+    path = '../app/build.gradle'
+    re = /versionCode\s+(\d+)/
+    s = File.read(path)
+    versionCode = s[re, 1].to_i
+    s[re, 1] = (versionCode + 1).to_s
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+  end
+
+  desc "Commit Changes"
+  lane :gitCommit do
+    git_add
+    git_commit(path: "*", message: "Bump up version")
+    # push_to_git_remote
+  end
+
   desc "Send notification to Telegram"
   lane :sendInfoTelegram do 
     telegram(

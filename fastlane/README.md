@@ -31,6 +31,16 @@ Runs all the tests
 fastlane android buildDebug
 ```
 build clean debug app
+### android bumpUpVersion
+```
+fastlane android bumpUpVersion
+```
+Bump up App Version
+### android gitCommit
+```
+fastlane android gitCommit
+```
+Commit Changes
 ### android sendInfoTelegram
 ```
 fastlane android sendInfoTelegram
