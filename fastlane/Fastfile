@@ -43,10 +43,11 @@ platform :android do
   desc "Submit a new Beta Build to Firebase App Distribution"
   lane :beta do
     buildDebug
+    commit = last_git_commit
     firebase_app_distribution(
         app: "1:633139894316:android:60c7e6d6f613f02c569989",
         groups: "proyek-demo-yyz",
-        release_notes: "new beta debug build already updated!"
+        release_notes: "new beta debug build already updated! : #{commit[:message]}"
     )
 
 
