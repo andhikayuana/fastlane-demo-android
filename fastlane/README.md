@@ -16,11 +16,6 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## Android
-### android lint
-```
-fastlane android lint
-```
-Runs linter
 ### android test
 ```
 fastlane android test
@@ -31,31 +26,11 @@ Runs all the tests
 fastlane android buildDebug
 ```
 build clean debug app
-### android bumpUpVersion
-```
-fastlane android bumpUpVersion
-```
-Bump up App Version
-### android gitCommit
-```
-fastlane android gitCommit
-```
-Commit Changes
-### android sendInfoTelegram
-```
-fastlane android sendInfoTelegram
-```
-Send notification to Telegram
 ### android beta
 ```
 fastlane android beta
 ```
 Submit a new Beta Build to Firebase App Distribution
-### android deploy
-```
-fastlane android deploy
-```
-Deploy a new version to the Google Play
 
 ----
 

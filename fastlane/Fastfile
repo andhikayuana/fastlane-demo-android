@@ -16,10 +16,10 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs linter"
-  lane :lint do
-    gradle(task: "lint")
-  end
+  # desc "Runs linter"
+  # lane :lint do
+  #   gradle(task: "lint")
+  # end
 
   desc "Runs all the tests"
   lane :test do
@@ -31,33 +31,33 @@ platform :android do
     gradle(task: "clean assembleDebug")
   end
 
-  desc "Bump up App Version"
-  lane :bumpUpVersion do
-    path = '../app/build.gradle'
-    re = /versionCode\s+(\d+)/
-    s = File.read(path)
-    versionCode = s[re, 1].to_i
-    s[re, 1] = (versionCode + 1).to_s
-    f = File.new(path, 'w')
-    f.write(s)
-    f.close
-  end
+  # desc "Bump up App Version"
+  # lane :bumpUpVersion do
+  #   path = '../app/build.gradle'
+  #   re = /versionCode\s+(\d+)/
+  #   s = File.read(path)
+  #   versionCode = s[re, 1].to_i
+  #   s[re, 1] = (versionCode + 1).to_s
+  #   f = File.new(path, 'w')
+  #   f.write(s)
+  #   f.close
+  # end
 
-  desc "Commit Changes"
-  lane :gitCommit do
-    git_add
-    git_commit(path: "*", message: "Bump up version")
-    # push_to_git_remote
-  end
+  # desc "Commit Changes"
+  # lane :gitCommit do
+  #   git_add
+  #   git_commit(path: "*", message: "Bump up version")
+  #   # push_to_git_remote
+  # end
 
-  desc "Send notification to Telegram"
-  lane :sendInfoTelegram do 
-    telegram(
-        token: "821357935:AAEgLRX_O5SiGU8VaaIEAkhuab0sWuyuFEA",
-        chat_id: "106742796",
-        text: "Hello From Fastlane"
-      )
-  end
+  # desc "Send notification to Telegram"
+  # lane :sendInfoTelegram do 
+  #   telegram(
+  #       token: "821357935:AAEgLRX_O5SiGU8VaaIEAkhuab0sWuyuFEA",
+  #       chat_id: "106742796",
+  #       text: "Hello From Fastlane"
+  #     )
+  # end
 
   desc "Submit a new Beta Build to Firebase App Distribution"
   lane :beta do
@@ -70,16 +70,16 @@ platform :android do
     )
 
 
-    # gradle(task: "clean assembleRelease")
-    # crashlytics
+  #   # gradle(task: "clean assembleRelease")
+  #   # crashlytics
   
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
+  #   # sh "your_script.sh"
+  #   # You can also use other beta testing services here
   end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
+  # desc "Deploy a new version to the Google Play"
+  # lane :deploy do
+  #   gradle(task: "clean assembleRelease")
+  #   upload_to_play_store
+  # end
 end
